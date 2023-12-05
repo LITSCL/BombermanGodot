@@ -1,0 +1,4 @@
+res://main.tscn
+res://resources/tile.tres
+res://main.gd
+res://scripts/player/jugador.gd

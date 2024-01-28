@@ -3,27 +3,37 @@ extends Node2D
 #1. Declarar variables globales.
 @export var duracion: float
 
-#2. Zona de funciones Nodo.
+#2. Declarar variables locales.
+var exploto: bool = false
+
+#3. Zona de funciones Nodo.
 func _ready() -> void:
 	var posicion_grilla: Vector2 = Vector2(int(round(position.x / 16)), int(round(position.y / 16)))
 	position = Vector2(posicion_grilla.x * 16, posicion_grilla.y * 16) #Cuadrando bomba dentro de una celda de la grilla.
 	var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
 	for nodo in nodos_raycast:
 		var raycast: Node = nodo as RayCast2D
-		raycast.add_exception(get_tree().get_nodes_in_group("hijo_jugador")[0])
+		raycast.add_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Evitando que los rayos colisionen con el jugador.
 
 func _physics_process(delta) -> void:
-	chequear_rayo()
+	if (exploto):
+		chequear_rayo()
 
-#3. Zona de funciones Señal.
+#4. Zona de funciones Señal.
 func _on_timer_timeout() -> void:
 	$AnimationPlayer.play("bomba_explotando")
 
-func _on_animation_player_animation_finished(anim_name) -> void:
-	if (anim_name == "bomba_explotando"):
-		queue_free() #Destruyendo la bomba.
+func _on_animation_player_animation_finished(nombre_animacion) -> void:
+	if (nombre_animacion == "bomba_explotando"):
+		exploto = true
+		chequear_rayo()
+		var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
+		for nodo in nodos_raycast:
+			var raycast: Node = nodo as RayCast2D
+			raycast.remove_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Permitiendo que los rayos colisionen con el jugador.
+		#queue_free() #Destruyendo la bomba.
 
-#4. Zona de funciones Custom.
+#5. Zona de funciones Custom.
 func chequear_rayo() -> void:
 	var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
 	for nodo in nodos_raycast:
@@ -47,7 +57,6 @@ func chequear_rayo() -> void:
 				var punto_colision: Vector2 = raycast.get_collision_point() + modificador #Obteniendo la posición de colisión.
 				var nodo_tilemap: Node = get_tree().get_nodes_in_group("hijo_bloque_destructible")[0] as TileMap
 				var posicion_tilemap: Vector2 = nodo_tilemap.local_to_map(punto_colision) #Obteniendo la posición del TileMap.
-				
 				nodo_tilemap.erase_cell(0, posicion_tilemap) #Borrando el Tile.
-
-				#colisionador.queue_free() #Destruyendo el objeto colisionador (Tile).
+			elif (colisionador && colisionador.is_in_group("hijo_jugador")):
+				colisionador.queue_free()

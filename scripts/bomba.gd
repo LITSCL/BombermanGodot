@@ -56,7 +56,7 @@ func chequear_rayo() -> void:
 					modificador.y = 8
 				var punto_colision: Vector2 = raycast.get_collision_point() + modificador #Obteniendo la posición de colisión.
 				var nodo_tilemap: Node = get_tree().get_nodes_in_group("hijo_bloque_destructible")[0] as TileMap
-				var posicion_tilemap: Vector2 = nodo_tilemap.local_to_map(punto_colision) #Obteniendo la posición del TileMap.
+				var posicion_tilemap: Vector2 = nodo_tilemap.local_to_map(punto_colision) #Obteniendo la posición del Tile.
 				nodo_tilemap.erase_cell(0, posicion_tilemap) #Borrando el Tile.
 			elif (colisionador && colisionador.is_in_group("hijo_jugador")):
 				colisionador.queue_free()

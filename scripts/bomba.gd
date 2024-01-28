@@ -33,19 +33,21 @@ func chequear_rayo() -> void:
 			if (colisionador && colisionador.is_in_group("hijo_bloque_destructible")):
 				var modificador: Vector2 = Vector2()
 				if (raycast.name == "RayCast2D1"): #Abajo
-					modificador.y = 8
+					modificador.y = 16
+					modificador.x = -16
 				elif (raycast.name == "RayCast2D2"): #Arriba
-					modificador.y = -8
+					modificador.y = 8
+					modificador.x = -16
 				elif (raycast.name == "RayCast2D3"): #Izquierda
-					modificador.x = -8
+					modificador.x = -16
+					modificador.y = 8
 				elif (raycast.name == "RayCast2D4"): #Derecha
-					modificador.x = 8
+					modificador.x = -8
+					modificador.y = 8
 				var punto_colision: Vector2 = raycast.get_collision_point() + modificador #Obteniendo la posición de colisión.
 				var nodo_tilemap: Node = get_tree().get_nodes_in_group("hijo_bloque_destructible")[0] as TileMap
 				var posicion_tilemap: Vector2 = nodo_tilemap.local_to_map(punto_colision) #Obteniendo la posición del TileMap.
 				
-				#BORRANDO EL TILEMAP:
-				print(posicion_tilemap)
-				nodo_tilemap.erase_cell(0, posicion_tilemap)
+				nodo_tilemap.erase_cell(0, posicion_tilemap) #Borrando el Tile.
 
 				#colisionador.queue_free() #Destruyendo el objeto colisionador (Tile).

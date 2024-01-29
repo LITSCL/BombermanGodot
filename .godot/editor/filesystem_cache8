@@ -1,9 +1,8 @@
 2a60927148abd1d33b818b535e306557
-::res://::1706540879
+::res://::1706541856
 icon.svg::CompressedTexture2D::2341069075993442636::1706426891::1706426891::1::::<><>::
 main.gd::GDScript::-1::1706537810::0::1::::<>Node2D<>::
-main.tscn::PackedScene::2099581350688250677::1706540879::0::1::::<><>::res://main.gd<>uid://b58vnxoygwly5<>uid://be4wmqi74inbj<>res://scripts/player/jugador.gd<>uid://ctbpa15ikl5aq<>uid://dsl4k4vdile81<>uid://wr6nttntlf5s<>uid://bt3d7wxuf1e0w
-expansion_inicial.gd::GDScript::-1::1706541034::0::1::::<>Node2D<>::
+main.tscn::PackedScene::2099581350688250677::1706541668::0::1::::<><>::res://main.gd<>uid://b58vnxoygwly5<>uid://be4wmqi74inbj<>res://scripts/player/jugador.gd<>uid://ctbpa15ikl5aq<>uid://dsl4k4vdile81<>uid://wr6nttntlf5s<>uid://bt3d7wxuf1e0w
 ::res://assets/::1706533644
 ::res://assets/font/::1706533630
 8-BIT WONDER.TTF::FontFile::2455235844815137195::1706426891::1706533630::1::::<><>::
@@ -36,12 +35,14 @@ borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
 ::res://resources/::1706537336
 tile.tres::TileSet::3778051778273268440::1706537336::0::1::::<><>::uid://b58vnxoygwly5
 tile.tscn::PackedScene::-1::1706426891::0::1::::<><>::uid://cl8v7ojd5rwdn
-::res://scenes/::1706540879
-bomba.tscn::PackedScene::2728401070705739503::1706540941::0::1::::<><>::res://scripts/bomba.gd<>uid://ctbpa15ikl5aq
-expansion_final.tscn::PackedScene::1581155451863679370::1706535325::0::1::::<><>::uid://ctbpa15ikl5aq
-expansion_inicial.tscn::PackedScene::8447149598353302020::1706535325::0::1::::<><>::uid://ctbpa15ikl5aq
-::res://scripts/::1706540787
+::res://scenes/::1706541668
+bomba.tscn::PackedScene::2728401070705739503::1706541668::0::1::::<><>::res://scripts/bomba.gd<>uid://ctbpa15ikl5aq
+expansion_final.tscn::PackedScene::1581155451863679370::1706541668::0::1::::<><>::res://scripts/expansion_final.gd<>uid://ctbpa15ikl5aq
+expansion_inicial.tscn::PackedScene::8447149598353302020::1706541668::0::1::::<><>::uid://ctbpa15ikl5aq<>res://scripts/expansion_inicial.gd
+::res://scripts/::1706541666
 bomba.gd::GDScript::-1::1706540941::0::1::::<>Node2D<>::
+expansion_final.gd::GDScript::-1::1706541666::0::1::::<>Node2D<>::
+expansion_inicial.gd::GDScript::-1::1706541655::0::1::::<>Node2D<>::
 ::res://scripts/enemy/::1706426891
 borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
 ::res://scripts/player/::1706486790

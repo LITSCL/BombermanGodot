@@ -1,3 +1,4 @@
 res://main.tscn
 res://resources/tile.tres
 res://scripts/bomba.gd
+res://scripts/player/jugador.gd

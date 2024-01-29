@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _physics_process(delta) -> void:
 	velocidad_movimiento_actual = Vector2(0, 0)
-	
 	if (Input.is_action_pressed("tecla_a")):
 		if (estado_movimiento_actual != EstadosMovimiento.MOVIENDO_IZQUIERDA):
 			estado_movimiento_actual = EstadosMovimiento.MOVIENDO_IZQUIERDA
@@ -71,7 +70,8 @@ func _physics_process(delta) -> void:
 				$Sprite2D.frame+=1
 		$Sprite2D.flip_h = false
 		puede_moverse = false
-		
+	else:
+		pass
 	if (Input.is_action_just_pressed("tecla_espacio") && puede_plantar):
 		var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
 		var nodo_nivel: Node = get_tree().get_nodes_in_group("hijo_nivel")[0] as Node2D #Obteniendo el nodo "Nivel".
@@ -81,7 +81,8 @@ func _physics_process(delta) -> void:
 		puede_plantar = false
 	elif (!puede_plantar):
 		chequear_bomba()
-		
+	else:
+		pass
 	move_and_collide(velocidad_movimiento_actual * delta)
 
 #5. Zona de funciones Señal.
@@ -91,6 +92,5 @@ func _on_timer_timeout() -> void:
 #6. Zona de funciones Custom.
 func chequear_bomba() -> void:
 	var cantidad_bombas: int = get_tree().get_nodes_in_group("padre_bomba").size() #Obteniendo la cantidad de nodos en el grupo "padre_bomba".
-	
 	if (cantidad_bombas == 0):
 		puede_plantar = true

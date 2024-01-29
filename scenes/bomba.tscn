@@ -69,7 +69,7 @@ script = ExtResource("1_y7nsy")
 texture = ExtResource("2_mpqmv")
 hframes = 14
 vframes = 24
-frame = 86
+frame = 42
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_htx0d")

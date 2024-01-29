@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsl4k4vdile81"]
+[gd_scene load_steps=6 format=3 uid="uid://dsl4k4vdile81"]
 
 [ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/sprite/1_sprite_1.png" id="1_xbwos"]
+[ext_resource type="Script" path="res://scripts/expansion_inicial.gd" id="1_xgpmx"]
 
 [sub_resource type="Animation" id="Animation_e3fvk"]
 resource_name = "EXPANSION"
@@ -39,6 +40,7 @@ _data = {
 }
 
 [node name="ExpansionInicial" type="Node2D"]
+script = ExtResource("1_xgpmx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xbwos")
@@ -51,3 +53,5 @@ autoplay = "EXPANSION"
 libraries = {
 "": SubResource("AnimationLibrary_8ax2n")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

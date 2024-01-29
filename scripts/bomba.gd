@@ -27,11 +27,12 @@ func _on_animation_player_animation_finished(nombre_animacion) -> void:
 	if (nombre_animacion == "BOMBA_EXPLOTANDO"):
 		exploto = true
 		chequear_rayo()
+		generar_expansion()
 		var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
-		for nodo in nodos_raycast:
-			var raycast: Node = nodo as RayCast2D
-			raycast.remove_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Permitiendo que los rayos colisionen con el jugador.
-		#queue_free() #Destruyendo la bomba.
+		#for nodo in nodos_raycast:
+			#var raycast: Node = nodo as RayCast2D
+			#raycast.remove_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Permitiendo que los rayos colisionen con el jugador.
+		queue_free() #Destruyendo la bomba.
 
 #5. Zona de funciones Custom.
 func chequear_rayo() -> void:
@@ -64,3 +65,24 @@ func chequear_rayo() -> void:
 				colisionador.queue_free()
 			else:
 				pass
+
+func generar_expansion() -> void:
+	var nodo_nivel: Node = get_tree().get_nodes_in_group("hijo_nivel")[0] as Node2D
+	var casillero_actual: int = 1
+	var casillero_recorrer: int = $RayCast2D4.target_position.y / 16
+	for i in casillero_recorrer:
+		if (casillero_actual < casillero_recorrer):
+			var casillero_final: int = position.x + casillero_actual * 16
+			if (!$RayCast2D4.is_colliding() || ($RayCast2D4.is_colliding() && $RayCast2D4.get_collision_point().x + 8 > casillero_final)):
+				var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+				var expansion_inicial: Node = nodo_main.escena_expansion_inicial.instantiate() #Creando una instancia del nodo "ExpansionInicial".
+				nodo_nivel.add_child(expansion_inicial)
+				expansion_inicial.position = Vector2(position.x + casillero_actual * 16, position.y)
+		elif (casillero_actual == casillero_recorrer && !$RayCast2D4.is_colliding()):
+			var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+			var expansion_final: Node = nodo_main.escena_expansion_final.instantiate() #Creando una instancia del nodo "ExpansionFinal".
+			nodo_nivel.add_child(expansion_final)
+			expansion_final.position = Vector2(position.x + casillero_actual * 16, position.y)
+		else:
+			pass
+		casillero_actual+=1

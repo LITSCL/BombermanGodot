@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://wr6nttntlf5s"]
+[gd_scene load_steps=6 format=3 uid="uid://wr6nttntlf5s"]
 
+[ext_resource type="Script" path="res://scripts/expansion_final.gd" id="1_ejjm3"]
 [ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/sprite/1_sprite_1.png" id="1_uknao"]
 
 [sub_resource type="Animation" id="Animation_saar3"]
@@ -39,6 +40,7 @@ _data = {
 }
 
 [node name="ExpansionFinal" type="Node2D"]
+script = ExtResource("1_ejjm3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uknao")
@@ -51,3 +53,5 @@ autoplay = "EXPANSION"
 libraries = {
 "": SubResource("AnimationLibrary_ijr0k")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

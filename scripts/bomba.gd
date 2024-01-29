@@ -21,10 +21,10 @@ func _physics_process(delta) -> void:
 
 #4. Zona de funciones Señal.
 func _on_timer_timeout() -> void:
-	$AnimationPlayer.play("bomba_explotando")
+	$AnimationPlayer.play("BOMBA_EXPLOTANDO")
 
 func _on_animation_player_animation_finished(nombre_animacion) -> void:
-	if (nombre_animacion == "bomba_explotando"):
+	if (nombre_animacion == "BOMBA_EXPLOTANDO"):
 		exploto = true
 		chequear_rayo()
 		var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")

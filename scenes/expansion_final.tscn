@@ -2,6 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://graphics/sprite/1_sprite_1.png" id="1_lqqwd"]
 
+[sub_resource type="Animation" id="Animation_saar3"]
+resource_name = "EXPANSION"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [88, 93, 158, 163, 158, 93, 88]
+}
+
 [sub_resource type="Animation" id="Animation_6c075"]
 length = 0.001
 tracks/0/type = "value"
@@ -17,25 +32,10 @@ tracks/0/keys = {
 "values": [93]
 }
 
-[sub_resource type="Animation" id="Animation_saar3"]
-resource_name = "expansion"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [88, 93, 158, 163, 158, 93, 88]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijr0k"]
 _data = {
-"RESET": SubResource("Animation_6c075"),
-"expansion": SubResource("Animation_saar3")
+"EXPANSION": SubResource("Animation_saar3"),
+"RESET": SubResource("Animation_6c075")
 }
 
 [node name="ExpansionFinal" type="Node2D"]
@@ -47,7 +47,7 @@ vframes = 24
 frame = 93
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "expansion"
+autoplay = "EXPANSION"
 libraries = {
 "": SubResource("AnimationLibrary_ijr0k")
 }

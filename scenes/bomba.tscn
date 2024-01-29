@@ -6,23 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htx0d"]
 size = Vector2(16, 16)
 
-[sub_resource type="Animation" id="Animation_grsxg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody2D/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
 [sub_resource type="Animation" id="Animation_g3010"]
-resource_name = "bomba_explotando"
+resource_name = "BOMBA_EXPLOTANDO"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,7 +22,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_4tvh1"]
-resource_name = "bomba_plantada"
+resource_name = "BOMBA_PLANTADA"
 length = 0.55
 loop_mode = 1
 tracks/0/type = "value"
@@ -53,11 +38,26 @@ tracks/0/keys = {
 "values": [42, 43, 44]
 }
 
+[sub_resource type="Animation" id="Animation_grsxg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nfw5f"]
 _data = {
-"RESET": SubResource("Animation_grsxg"),
-"bomba_explotando": SubResource("Animation_g3010"),
-"bomba_plantada": SubResource("Animation_4tvh1")
+"BOMBA_EXPLOTANDO": SubResource("Animation_g3010"),
+"BOMBA_PLANTADA": SubResource("Animation_4tvh1"),
+"RESET": SubResource("Animation_grsxg")
 }
 
 [node name="Bomba" type="Node2D" groups=["padre_bomba"]]
@@ -69,13 +69,13 @@ script = ExtResource("1_y7nsy")
 texture = ExtResource("1_jn430")
 hframes = 14
 vframes = 24
-frame = 42
+frame = 86
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_htx0d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "bomba_plantada"
+autoplay = "BOMBA_PLANTADA"
 libraries = {
 "": SubResource("AnimationLibrary_nfw5f")
 }

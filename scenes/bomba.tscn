@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdqkxdenltrb"]
+[gd_scene load_steps=8 format=3 uid="uid://be4wmqi74inbj"]
 
-[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://graphics/sprite/1_sprite_1.png" id="1_jn430"]
 [ext_resource type="Script" path="res://scripts/bomba.gd" id="1_y7nsy"]
+[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/sprite/1_sprite_1.png" id="2_mpqmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htx0d"]
 size = Vector2(16, 16)
@@ -66,7 +66,7 @@ script = ExtResource("1_y7nsy")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_jn430")
+texture = ExtResource("2_mpqmv")
 hframes = 14
 vframes = 24
 frame = 86

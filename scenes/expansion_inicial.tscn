@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsl4k4vdile81"]
 
-[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://graphics/sprite/1_sprite_1.png" id="1_mlepi"]
+[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/sprite/1_sprite_1.png" id="1_xbwos"]
 
 [sub_resource type="Animation" id="Animation_e3fvk"]
 resource_name = "EXPANSION"
@@ -41,7 +41,7 @@ _data = {
 [node name="ExpansionInicial" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mlepi")
+texture = ExtResource("1_xbwos")
 hframes = 14
 vframes = 24
 frame = 92

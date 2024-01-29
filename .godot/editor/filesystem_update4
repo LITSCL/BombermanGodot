@@ -1,3 +1,5 @@
 res://scenes/bomba.tscn
 res://scenes/expansion_final.tscn
 res://scenes/expansion_inicial.tscn
+res://resources/tile.tres
+res://main.tscn

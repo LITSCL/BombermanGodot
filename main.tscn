@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca57ud1y2bgav"]
+[gd_scene load_steps=9 format=3 uid="uid://46b2euivfygr"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
-[ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://graphics/background/1_background_1.png" id="1_ndoku"]
-[ext_resource type="PackedScene" uid="uid://cdqkxdenltrb" path="res://scenes/bomba.tscn" id="2_5pvox"]
+[ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_1.png" id="1_ndoku"]
+[ext_resource type="PackedScene" uid="uid://be4wmqi74inbj" path="res://scenes/bomba.tscn" id="2_5pvox"]
 [ext_resource type="Script" path="res://scripts/player/jugador.gd" id="2_alcti"]
-[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://graphics/sprite/1_sprite_1.png" id="3_2qavy"]
-[ext_resource type="TileSet" uid="uid://cl8v7ojd5rwdn" path="res://resources/tile.tres" id="6_l2hn3"]
+[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/sprite/1_sprite_1.png" id="3_2qavy"]
+[ext_resource type="TileSet" uid="uid://bt3d7wxuf1e0w" path="res://resources/tile.tres" id="6_l2hn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h24l"]
 size = Vector2(16.3, 16)

@@ -1,4 +1,3 @@
-res://main.tscn
+res://scenes/expansion_inicial.tscn
 res://resources/tile.tres
-res://scripts/bomba.gd
-res://scripts/player/jugador.gd
+res://scenes/expansion_final.tscn

@@ -1,8 +1,8 @@
 2a60927148abd1d33b818b535e306557
-::res://::1706486473
+::res://::1706530836
 icon.svg::CompressedTexture2D::2341069075993442636::1706426891::1706426891::1::::<><>::
 main.gd::GDScript::-1::1706426891::0::1::::<>Node2D<>::
-main.tscn::PackedScene::4836751558516162917::1706439138::0::1::::<><>::res://main.gd<>uid://b58vnxoygwly5<>uid://cdqkxdenltrb<>res://scripts/player/jugador.gd<>uid://ctbpa15ikl5aq<>uid://cl8v7ojd5rwdn
+main.tscn::PackedScene::4836751558516162917::1706486854::0::1::::<><>::res://main.gd<>uid://b58vnxoygwly5<>uid://cdqkxdenltrb<>res://scripts/player/jugador.gd<>uid://ctbpa15ikl5aq<>uid://cl8v7ojd5rwdn
 ::res://fonts/::1706426891
 8-BIT WONDER.TTF::FontFile::2455235844815137195::1706426891::1706426891::1::::<><>::
 ::res://graphics/::1706426891
@@ -18,17 +18,19 @@ borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
 borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
 ::res://graphics/ui/menu/::1706426891
 borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
-::res://resources/::1706439138
-tile.tres::TileSet::5614376064948815187::1706439138::0::1::::<><>::uid://b58vnxoygwly5
+::res://resources/::1706530183
+tile.tres::TileSet::5614376064948815187::1706530183::0::1::::<><>::uid://b58vnxoygwly5
 tile.tscn::PackedScene::-1::1706426891::0::1::::<><>::uid://cl8v7ojd5rwdn
-::res://scenes/::1706434734
+::res://scenes/::1706530716
 bomba.tscn::PackedScene::147561363232591991::1706434734::0::1::::<><>::uid://ctbpa15ikl5aq<>res://scripts/bomba.gd
-::res://scripts/::1706439138
-bomba.gd::GDScript::-1::1706439138::0::1::::<>Node2D<>::
+expansion_final.tscn::PackedScene::1581155451863679370::1706530716::0::1::::<><>::uid://ctbpa15ikl5aq
+expansion_inicial.tscn::PackedScene::8447149598353302020::1706530222::0::1::::<><>::uid://ctbpa15ikl5aq
+::res://scripts/::1706486650
+bomba.gd::GDScript::-1::1706486650::0::1::::<>Node2D<>::
 ::res://scripts/enemy/::1706426891
 borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
-::res://scripts/player/::1706426891
-jugador.gd::GDScript::-1::1706426891::0::1::::<>CharacterBody2D<>::
+::res://scripts/player/::1706486790
+jugador.gd::GDScript::-1::1706486789::0::1::::<>CharacterBody2D<>::
 ::res://sounds/::1706426891
 ::res://sounds/bgm/::1706426891
 1_bgm_1.mp3::AudioStreamMP3::5300972549524414599::1706426891::1706426891::1::::<><>::

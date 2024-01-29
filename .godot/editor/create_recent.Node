@@ -1,9 +1,9 @@
+AnimationPlayer
+Sprite2D
 Node
 RayCast2D
 Timer
-AnimationPlayer
 CollisionShape2D
-Sprite2D
 StaticBody2D
 TileMap
 Camera2D

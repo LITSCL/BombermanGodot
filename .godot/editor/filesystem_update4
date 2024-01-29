@@ -1,4 +1,3 @@
 res://main.tscn
 res://resources/tile.tres
-res://scripts/expansion_final.gd
-res://scripts/expansion_inicial.gd
+res://scripts/bomba.gd

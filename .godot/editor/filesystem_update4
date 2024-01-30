@@ -1,2 +1,4 @@
 res://main.tscn
 res://resources/tile.tres
+res://scripts/bomba.gd
+res://scenes/bomba.tscn

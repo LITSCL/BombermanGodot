@@ -69,7 +69,9 @@ func chequear_rayo() -> void:
 func generar_expansion() -> void:
 	var nodo_nivel: Node = get_tree().get_nodes_in_group("hijo_nivel")[0] as Node2D
 	var casillero_actual: int = 1
-	var casillero_recorrer: int = $RayCast2D4.target_position.y / 16
+	var casillero_recorrer: int = -1
+	#EXPANSIÓN DERECHA.
+	casillero_recorrer = $RayCast2D4.target_position.y / 16
 	for i in casillero_recorrer:
 		if (casillero_actual < casillero_recorrer):
 			var casillero_final: int = position.x + casillero_actual * 16
@@ -83,6 +85,69 @@ func generar_expansion() -> void:
 			var expansion_final: Node = nodo_main.escena_expansion_final.instantiate() #Creando una instancia del nodo "ExpansionFinal".
 			nodo_nivel.add_child(expansion_final)
 			expansion_final.position = Vector2(position.x + casillero_actual * 16, position.y)
+		else:
+			pass
+		casillero_actual+=1
+	casillero_actual = 1
+	#EXPANSIÓN IZQUIERDA.
+	casillero_recorrer = $RayCast2D3.target_position.y / 16
+	for i in casillero_recorrer:
+		if (casillero_actual < casillero_recorrer):
+			var casillero_final: int = position.x + casillero_actual * 16
+			if (!$RayCast2D3.is_colliding() || ($RayCast2D3.is_colliding() && $RayCast2D3.get_collision_point().x - 8 > casillero_final)):
+				var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+				var expansion_inicial: Node = nodo_main.escena_expansion_inicial.instantiate() #Creando una instancia del nodo "ExpansionInicial".
+				nodo_nivel.add_child(expansion_inicial)
+				expansion_inicial.position = Vector2(position.x - casillero_actual * 16, position.y)
+				expansion_inicial.get_node("Sprite2D").flip_h = true #Volteando horizontalmente el Sprite.
+		elif (casillero_actual == casillero_recorrer && !$RayCast2D3.is_colliding()):
+			var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+			var expansion_final: Node = nodo_main.escena_expansion_final.instantiate() #Creando una instancia del nodo "ExpansionFinal".
+			nodo_nivel.add_child(expansion_final)
+			expansion_final.position = Vector2(position.x - casillero_actual * 16, position.y)
+			expansion_final.get_node("Sprite2D").flip_h = true #Volteando horizontalmente el Sprite.
+		else:
+			pass
+		casillero_actual+=1
+	casillero_actual = 1
+	#EXPANSIÓN ARRIBA.
+	casillero_recorrer = $RayCast2D2.target_position.y / 16
+	for i in casillero_recorrer:
+		if (casillero_actual < casillero_recorrer):
+			var casillero_final: int = position.x + casillero_actual * 16
+			if (!$RayCast2D2.is_colliding() || ($RayCast2D2.is_colliding() && $RayCast2D2.get_collision_point().y - 8 > casillero_final)):
+				var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+				var expansion_inicial: Node = nodo_main.escena_expansion_inicial.instantiate() #Creando una instancia del nodo "ExpansionInicial".
+				nodo_nivel.add_child(expansion_inicial)
+				expansion_inicial.position = Vector2(position.x, position.y - casillero_actual * 16)
+				expansion_inicial.get_node("Sprite2D").rotation_degrees = 270 #Rotando el Sprite.
+		elif (casillero_actual == casillero_recorrer && !$RayCast2D2.is_colliding()):
+			var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+			var expansion_final: Node = nodo_main.escena_expansion_final.instantiate() #Creando una instancia del nodo "ExpansionFinal".
+			nodo_nivel.add_child(expansion_final)
+			expansion_final.position = Vector2(position.x, position.y - casillero_actual * 16)
+			expansion_final.get_node("Sprite2D").rotation_degrees = 270 #Rotando el Sprite.
+		else:
+			pass
+		casillero_actual+=1
+	casillero_actual = 1
+	#EXPANSIÓN ABAJO.
+	casillero_recorrer = $RayCast2D1.target_position.y / 16
+	for i in casillero_recorrer:
+		if (casillero_actual < casillero_recorrer):
+			var casillero_final: int = position.x + casillero_actual * 16
+			if (!$RayCast2D1.is_colliding() || ($RayCast2D1.is_colliding() && $RayCast2D1.get_collision_point().y + 8 > casillero_final)):
+				var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+				var expansion_inicial: Node = nodo_main.escena_expansion_inicial.instantiate() #Creando una instancia del nodo "ExpansionInicial".
+				nodo_nivel.add_child(expansion_inicial)
+				expansion_inicial.position = Vector2(position.x, position.y + casillero_actual * 16)
+				expansion_inicial.get_node("Sprite2D").rotation_degrees = 90 #Rotando el Sprite.
+		elif (casillero_actual == casillero_recorrer && !$RayCast2D1.is_colliding()):
+			var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+			var expansion_final: Node = nodo_main.escena_expansion_final.instantiate() #Creando una instancia del nodo "ExpansionFinal".
+			nodo_nivel.add_child(expansion_final)
+			expansion_final.position = Vector2(position.x, position.y + casillero_actual * 16)
+			expansion_final.get_node("Sprite2D").rotation_degrees = 90 #Rotando el Sprite.
 		else:
 			pass
 		casillero_actual+=1

@@ -1,8 +1,8 @@
 2a60927148abd1d33b818b535e306557
-::res://::1706549450
+::res://::1706570454
 icon.svg::CompressedTexture2D::2341069075993442636::1706426891::1706426891::1::::<><>::
 main.gd::GDScript::-1::1706537810::0::1::::<>Node2D<>::
-main.tscn::PackedScene::4854215100450723660::1706549314::0::1::::<><>::res://main.gd<>res://scenes/bomba.tscn<>res://scripts/player/jugador.gd<>res://scenes/expansion_inicial.tscn<>res://scenes/expansion_final.tscn<>uid://b58vnxoygwly5<>uid://32b23bsaqcy8<>uid://ctbpa15ikl5aq
+main.tscn::PackedScene::4854215100450723660::1706549487::0::1::::<><>::res://main.gd<>res://scenes/bomba.tscn<>res://scripts/player/jugador.gd<>res://scenes/expansion_inicial.tscn<>res://scenes/expansion_final.tscn<>uid://b58vnxoygwly5<>uid://32b23bsaqcy8<>uid://ctbpa15ikl5aq
 ::res://assets/::1706533644
 ::res://assets/font/::1706533630
 8-BIT WONDER.TTF::FontFile::2455235844815137195::1706426891::1706533630::1::::<><>::
@@ -19,7 +19,7 @@ borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
 ::res://assets/graphic/ui/menu/::1706426891
 borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
 ::res://assets/sound/::1706426891
-::res://assets/sound/bgm/::1706549450
+::res://assets/sound/bgm/::1706549451
 1_bgm_niveluno.mp3::AudioStreamMP3::5300972549524414599::1706426891::1706549436::1::::<><>::
 2_bgm_niveldos.mp3::AudioStreamMP3::3754449914593718476::1706426891::1706549451::1::::<><>::
 3_bgm_victoria.mp3::AudioStreamMP3::6025665266848713532::1706426891::1706549116::1::::<><>::
@@ -31,8 +31,8 @@ borrar.txt::TextFile::-1::1706426891::0::1::::<><>::
 5_sfx_5.mp3::AudioStreamMP3::5843829825589155025::1706426891::1706533644::1::::<><>::
 6_sfx_6.mp3::AudioStreamMP3::4396293654240619138::1706426891::1706533644::1::::<><>::
 7_sfx_7.mp3::AudioStreamMP3::3987786791505554063::1706426891::1706533644::1::::<><>::
-::res://resources/::1706549314
-tile.tres::TileSet::2021136227669797465::1706549314::0::1::::<><>::uid://b58vnxoygwly5
+::res://resources/::1706549488
+tile.tres::TileSet::2021136227669797465::1706549488::0::1::::<><>::uid://b58vnxoygwly5
 tile.tscn::PackedScene::-1::1706426891::0::1::::<><>::uid://cl8v7ojd5rwdn
 ::res://scenes/::1706549314
 bomba.tscn::PackedScene::-1::1706549314::0::1::::<><>::res://scripts/bomba.gd<>uid://ctbpa15ikl5aq

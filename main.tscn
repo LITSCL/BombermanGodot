@@ -1,22 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbfohi2gxgsgy"]
+[gd_scene load_steps=8 format=3 uid="uid://cbfohi2gxgsgy"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
 [ext_resource type="PackedScene" uid="uid://br5k38308xjbs" path="res://scenes/bomba.tscn" id="2_5pvox"]
-[ext_resource type="Script" path="res://scripts/player/jugador.gd" id="2_alcti"]
-[ext_resource type="PackedScene" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
-[ext_resource type="PackedScene" path="res://scenes/expansion_final.tscn" id="4_copq2"]
+[ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/Jugador.tscn" id="2_pgp43"]
+[ext_resource type="PackedScene" uid="uid://dhsn8a2en44a1" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
+[ext_resource type="PackedScene" uid="uid://biwxbmt1aocyx" path="res://scenes/expansion_final.tscn" id="4_copq2"]
 [ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_principal.png" id="5_djq7m"]
-[ext_resource type="TileSet" uid="uid://32b23bsaqcy8" path="res://resources/tile.tres" id="6_l2hn3"]
-[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/tileset/1_tileset_principal.png" id="7_02vm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h24l"]
 size = Vector2(16.3, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm0up"]
-size = Vector2(11, 12)
-
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_5lcg1")
+escena_jugador = ExtResource("2_pgp43")
 escena_bomba = ExtResource("2_5pvox")
 escena_expansion_inicial = ExtResource("3_pt56r")
 escena_expansion_final = ExtResource("4_copq2")
@@ -312,45 +308,3 @@ shape = SubResource("RectangleShape2D_2h24l")
 [node name="CollisionShape2D70" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
 position = Vector2(208, 64)
 shape = SubResource("RectangleShape2D_2h24l")
-
-[node name="Nivel" type="Node2D" parent="." groups=["hijo_nivel"]]
-
-[node name="Personaje" type="Node2D" parent="Nivel"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Nivel/Personaje" groups=["hijo_jugador"]]
-position = Vector2(-223, -65)
-motion_mode = 1
-script = ExtResource("2_alcti")
-
-[node name="Sprite2D" type="Sprite2D" parent="Nivel/Personaje/CharacterBody2D"]
-texture = ExtResource("7_02vm7")
-hframes = 14
-vframes = 24
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Nivel/Personaje/CharacterBody2D"]
-position = Vector2(-0.5, 2)
-shape = SubResource("RectangleShape2D_wm0up")
-
-[node name="Timer" type="Timer" parent="Nivel/Personaje/CharacterBody2D"]
-wait_time = 0.1
-one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="Nivel/Personaje/CharacterBody2D"]
-position = Vector2(111, 66)
-zoom = Vector2(4.128, 3.128)
-limit_left = -248
-limit_top = -104
-limit_right = 248
-limit_bottom = 104
-drag_left_margin = 0.0
-drag_top_margin = 0.0
-drag_right_margin = 0.0
-drag_bottom_margin = 0.0
-
-[node name="TileMap" type="TileMap" parent="Nivel" groups=["hijo_bloque_destructible"]]
-position = Vector2(8, -9)
-tile_set = ExtResource("6_l2hn3")
-format = 2
-layer_0/tile_data = PackedInt32Array(-131086, 65536, 13, -65551, 65536, 13, -15, 65536, 13, -262157, 65536, 13, -196621, 65536, 13, -131085, 65536, 13, -65549, 65536, 13, -13, 65536, 13, -14, 65536, 13, -131075, 65536, 13, -131076, 65536, 13, -131077, 65536, 13, -131078, 65536, 13, -131079, 65536, 13, -131080, 65536, 13, -131081, 65536, 13, -131082, 65536, 13, -131083, 65536, 13, -131084, 65536, 13, -262156, 65536, 13, -262155, 65536, 13, 196593, 65536, 13, 262129, 65536, 13, 327665, 65536, 13, 393201, 65536, 13, 262130, 65536, 13, 262131, 65536, 13, 196595, 65536, 13, 393202, 65536, 13, 393205, 65536, 13, 327669, 65536, 13, 262133, 65536, 13, 393207, 65536, 13, 393206, 65536, 13, 327671, 65536, 13, 262136, 65536, 13, 262135, 65536, 13, 262134, 65536, 13, 262138, 65536, 13, 262137, 65536, 13, 262139, 65536, 13, 327673, 65536, 13, 327675, 65536, 13, 131062, 65536, 13, 131063, 65536, 13, 65527, 65536, 13, -9, 65536, 13, -65545, 65536, 13, -11, 65536, 13, -12, 65536, 13, -65547, 65536, 13, 393213, 65536, 13, 327677, 65536, 13, 262141, 65536, 13, 262140, 65536, 13, -5, 65536, 13, -65541, 65536, 13, 131066, 65536, 13, 131065, 65536, 13, 131064, 65536, 13, 196601, 65536, 13, -262152, 65536, 13, -262151, 65536, 13, -262150, 65536, 13, -262149, 65536, 13, -262148, 65536, 13, -262147, 65536, 13, -196611, 65536, 13, -196613, 65536, 13, -196615, 65536, 13, -327679, 65536, 13, -262143, 65536, 13, -327678, 65536, 13, -327677, 65536, 13, -262141, 65536, 13, -196605, 65536, 13, -65533, 65536, 13, 3, 65536, 13, 65539, 65536, 13, 131075, 65536, 13, 196611, 65536, 13, 262147, 65536, 13, 327683, 65536, 13, 393214, 65536, 13, 393215, 65536, 13, 327679, 65536, 13, 262143, 65536, 13, 262142, 65536, 13, 196607, 65536, 13, 131071, 65536, 13, 131070, 65536, 13, 131069, 65536, 13, 196605, 65536, 13, 131068, 65536, 13, -131073, 65536, 13, -131074, 65536, 13, 65533, 65536, 13, 327684, 65536, 13, 327685, 65536, 13, 262149, 65536, 13, 262148, 65536, 13, 196612, 65536, 13, 196613, 65536, 13, 131077, 65536, 13, 65541, 65536, 13, 65540, 65536, 13, 5, 65536, 13, -65531, 65536, 13, -65532, 65536, 13, 65542, 65536, 13, 65543, 65536, 13, 65544, 65536, 13, 7, 65536, 13, -65529, 65536, 13, -65530, 65536, 13, -65528, 65536, 13, -65527, 65536, 13, -65526, 65536, 13, -65525, 65536, 13, -65524, 65536, 13, -65523, 65536, 13, -327675, 65536, 13, -327674, 65536, 13, -327673, 65536, 13, -327668, 65536, 13, -327669, 65536, 13, -131059, 65536, 13, -131063, 65536, 13, -196600, 65536, 13, -262135, 65536, 13, -196598, 65536, 13, -196599, 65536, 13, 65545, 65536, 13, 9, 65536, 13, 131081, 65536, 13, 196617, 65536, 13, 262153, 65536, 13, 327689, 65536, 13, 327690, 65536, 13, 327691, 65536, 13, 327692, 65536, 13, 327693, 65536, 13, 262155, 65536, 13, 196619, 65536, 13, 196618, 65536, 13, 131083, 65536, 13, 65546, 65536, 13, 65548, 65536, 13, 11, 65536, 13, 262157, 65536, 13, 196621, 65536, 13)
-
-[connection signal="timeout" from="Nivel/Personaje/CharacterBody2D/Timer" to="Nivel/Personaje/CharacterBody2D" method="_on_timer_timeout"]

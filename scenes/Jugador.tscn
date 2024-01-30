@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://luxf0ophieso"]
+
+[ext_resource type="Script" path="res://scripts/player/jugador.gd" id="1_a1qrj"]
+[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/tileset/1_tileset_principal.png" id="2_mijvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm0up"]
+size = Vector2(11, 12)
+
+[node name="Jugador" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["hijo_jugador"]]
+position = Vector2(-223, -65)
+motion_mode = 1
+script = ExtResource("1_a1qrj")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_mijvq")
+hframes = 14
+vframes = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_wm0up")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(111, 66)
+zoom = Vector2(4.128, 3.128)
+limit_left = -248
+limit_top = -104
+limit_right = 248
+limit_bottom = 104
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

@@ -8,7 +8,8 @@ extends Node2D
 
 #2. Zona de funciones Nodo.
 func _ready() -> void:
-	pass
+	ControladorJuego.cargar_nivel()
+	ControladorJuego.spawn_jugador()
 
 func _physics_process(delta) -> void:
 	pass

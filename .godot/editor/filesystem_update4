@@ -1,3 +1,7 @@
-res://main.tscn
+res://scenes/Jugador.tscn
 res://main.gd
-res://scripts/game_controller/controlador_juego.gd
+res://scripts/player/jugador.gd
+res://main.tscn
+res://scripts/bomba.gd
+res://scripts/expansion_final.gd
+res://scripts/expansion_inicial.gd

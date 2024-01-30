@@ -11,5 +11,5 @@ func _ready() -> void:
 	ControladorJuego.cargar_nivel()
 	ControladorJuego.spawn_jugador()
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	pass

@@ -4,8 +4,8 @@ extends Node2D
 func _ready() -> void:
 	pass
 
-func _process(delta) -> void:
+func _process(delta: float) -> void:
 	pass
 
-func _on_animation_player_animation_finished(nombre_animacion) -> void:
+func _on_animation_player_animation_finished(nombre_animacion: String) -> void:
 	queue_free()

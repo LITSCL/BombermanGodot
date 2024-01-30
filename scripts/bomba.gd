@@ -15,7 +15,7 @@ func _ready() -> void:
 		var raycast: Node = nodo as RayCast2D
 		raycast.add_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Evitando que los rayos colisionen con el jugador.
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	if (exploto):
 		chequear_rayo()
 		queue_free() #Destruyendo la bomba.
@@ -25,7 +25,7 @@ func _on_timer_timeout() -> void:
 	$AnimationPlayer.play("BOMBA_EXPLOTANDO")
 	generar_expansion()
 
-func _on_animation_player_animation_finished(nombre_animacion) -> void:
+func _on_animation_player_animation_finished(nombre_animacion: String) -> void:
 	if (nombre_animacion == "BOMBA_EXPLOTANDO"):
 		exploto = true
 		chequear_rayo()
@@ -62,7 +62,7 @@ func chequear_rayo() -> void:
 				var posicion_tilemap: Vector2 = nodo_tilemap.local_to_map(punto_colision) #Obteniendo la posición del Tile.
 				nodo_tilemap.erase_cell(0, posicion_tilemap) #Borrando el Tile.
 			elif (colisionador && colisionador.is_in_group("hijo_jugador")):
-				colisionador.queue_free()
+				colisionador.muerte();
 			else:
 				pass
 

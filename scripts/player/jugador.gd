@@ -75,7 +75,7 @@ func _physics_process(delta) -> void:
 	if (Input.is_action_just_pressed("tecla_espacio") && puede_plantar):
 		var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
 		var nodo_nivel: Node = get_tree().get_nodes_in_group("hijo_nivel")[0] as Node2D #Obteniendo el nodo "Nivel".
-		var bomba: Node = nodo_main.escena_bomba.instantiate() #Creando una instancia del nodo "Bomba".
+		var bomba: Node = nodo_main.escena_bomba.instantiate() #Creando una instancia de la escena "Bomba".
 		bomba.position = position #Asignando la posición de la bomba (Se esta asignando la posición del jugador).
 		nodo_nivel.add_child(bomba) #Añadiendo como nodo hijo el nodo "Bomba" al nodo "Nivel".
 		puede_plantar = false

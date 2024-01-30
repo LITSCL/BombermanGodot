@@ -103,7 +103,7 @@ func chequear_bomba() -> void:
 		puede_plantar = true
 		
 func muerte() -> void:
-	$AnimationPlayer.play("MUERTE")
 	estado_actual = Estados.MUERTO
+	$AnimationPlayer.play("MUERTE")
 	$CollisionShape2D.disabled = true
 	ControladorJuego.vidas_actuales-=1

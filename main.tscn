@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbfohi2gxgsgy"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
-[ext_resource type="PackedScene" uid="uid://br5k38308xjbs" path="res://scenes/bomba.tscn" id="2_5pvox"]
+[ext_resource type="PackedScene" path="res://scenes/bomba.tscn" id="2_5pvox"]
 [ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/Jugador.tscn" id="2_pgp43"]
-[ext_resource type="PackedScene" uid="uid://dhsn8a2en44a1" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
-[ext_resource type="PackedScene" uid="uid://biwxbmt1aocyx" path="res://scenes/expansion_final.tscn" id="4_copq2"]
+[ext_resource type="PackedScene" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
+[ext_resource type="PackedScene" path="res://scenes/expansion_final.tscn" id="4_copq2"]
 [ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_principal.png" id="5_djq7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h24l"]

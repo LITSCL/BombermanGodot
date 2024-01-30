@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhsn8a2en44a1"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/tileset/1_tileset_principal.png" id="1_xbwos"]
-[ext_resource type="Script" path="res://scripts/expansion_inicial.gd" id="1_xgpmx"]
+[ext_resource type="Script" path="res://scripts/extra/expansion_inicial.gd" id="1_xgpmx"]
+
 
 [sub_resource type="Animation" id="Animation_e3fvk"]
 resource_name = "EXPANSION"

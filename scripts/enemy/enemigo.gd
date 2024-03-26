@@ -7,7 +7,7 @@ extends CharacterBody2D
 enum Estados {NINGUNO, MOVIENDO_IZQUIERDA, MOVIENDO_DERECHA, MOVIENDO_ARRIBA, MOVIENDO_ABAJO, MUERTO}
 
 #3. Declarar variables locales.
-var estado_actual: Estados = Estados.MOVIENDO_ARRIBA
+var estado_actual: Estados = Estados.MOVIENDO_DERECHA
 var velocidad_movimiento_actual: Vector2 = Vector2()
 var puede_moverse: bool = true
 
@@ -59,7 +59,20 @@ func _physics_process(delta: float) -> void:
 			puede_moverse = false
 		else:
 			pass
-		move_and_collide(velocidad_movimiento_actual * delta)
+		var colision: KinematicCollision2D = move_and_collide(velocidad_movimiento_actual * delta)
+		if (colision != null):
+			var objeto_colisionado: Node2D = colision.get_collider()
+			if (objeto_colisionado.is_in_group("hijo_pared") || objeto_colisionado.is_in_group("hijo_bloque_destructible") || objeto_colisionado.is_in_group("padre_bomba")):
+				if (estado_actual == Estados.MOVIENDO_IZQUIERDA):
+					cambiar_direccion(1)
+				elif (estado_actual == Estados.MOVIENDO_DERECHA):
+					cambiar_direccion(0)
+				elif (estado_actual == Estados.MOVIENDO_ABAJO):
+					cambiar_direccion(2)
+				elif (estado_actual == Estados.MOVIENDO_ARRIBA):
+					cambiar_direccion(3)
+				else:
+					pass
 
 #5. Zona de funciones Señal.
 func _on_timer_timeout() -> void:
@@ -76,18 +89,18 @@ func cambiar_direccion(direccion: int) -> void:
 	match (direccion):
 		0:
 			estado_actual = Estados.MOVIENDO_IZQUIERDA
-			$Sprite2D.frame = 0
-			$Sprite2D.flip_h = false
+			$Sprite2D.frame = 210
+			$Sprite2D.flip_h = true
 		1:
 			estado_actual = Estados.MOVIENDO_DERECHA
-			$Sprite2D.frame = 0
-			$Sprite2D.flip_h = true
+			$Sprite2D.frame = 210
+			$Sprite2D.flip_h = false
 		2:
 			estado_actual = Estados.MOVIENDO_ARRIBA
-			$Sprite2D.frame = 17
+			$Sprite2D.frame = 210
 		3:
 			estado_actual = Estados.MOVIENDO_ABAJO
-			$Sprite2D.frame = 3
+			$Sprite2D.frame = 210
 		
 func muerte() -> void:
 	estado_actual = Estados.MUERTO

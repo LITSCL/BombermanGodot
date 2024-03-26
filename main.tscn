@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://deup67dau5hp3"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
-[ext_resource type="PackedScene" path="res://scenes/bomba.tscn" id="2_5pvox"]
+[ext_resource type="PackedScene" uid="uid://bmdjgu14nhovm" path="res://scenes/bomba.tscn" id="2_5pvox"]
 [ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/jugador.tscn" id="2_k6bn4"]
 [ext_resource type="PackedScene" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
-[ext_resource type="PackedScene" path="res://scenes/expansion_final.tscn" id="4_copq2"]
+[ext_resource type="PackedScene" uid="uid://cmvybkgowh6pp" path="res://scenes/expansion_final.tscn" id="4_copq2"]
 [ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_principal.png" id="5_djq7m"]
 [ext_resource type="Script" path="res://scripts/enemy/enemigo.gd" id="7_jub86"]
 [ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/tileset/1_tileset_principal.png" id="7_s8qvh"]
@@ -77,7 +77,7 @@ escena_expansion_final = ExtResource("4_copq2")
 
 [node name="BaseTablero" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="BaseTablero" groups=["pared"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="BaseTablero" groups=["hijo_pared"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="BaseTablero/StaticBody2D"]
 texture = ExtResource("5_djq7m")

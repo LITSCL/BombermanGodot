@@ -1,5 +1,9 @@
-res://main.tscn
+res://scenes/jugador.tscn
 res://main.gd
 res://scripts/enemy/enemigo.gd
-res://scenes/jugador.tscn
-res://scripts/player/jugador.gd
+res://main.tscn
+res://scenes/nivel_1.tscn
+res://resources/tile.tres
+res://resources/tile.tscn
+res://scenes/bomba.tscn
+res://scenes/expansion_final.tscn

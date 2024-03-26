@@ -1,7 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://nib0ccnfst83"]
 
-[ext_resource type="TileSet" uid="uid://cl8v7ojd5rwdn" path="res://resources/tile.tres" id="1_s07ob"]
-
+[ext_resource type="TileSet" uid="uid://32b23bsaqcy8" path="res://resources/tile.tres" id="1_s07ob"]
 
 [node name="Tile" type="Node2D" groups=["padre_tile"]]
 

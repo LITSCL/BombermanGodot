@@ -1,5 +1,5 @@
-res://scenes/jugador.tscn
-res://main.gd
-res://scripts/player/jugador.gd
-res://scripts/enemy/enemigo.gd
 res://main.tscn
+res://main.gd
+res://scripts/enemy/enemigo.gd
+res://scenes/jugador.tscn
+res://scripts/player/jugador.gd

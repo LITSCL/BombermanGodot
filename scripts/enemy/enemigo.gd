@@ -1,29 +1,30 @@
 extends CharacterBody2D
 
 #1. Declarar variables globales.
-@export var velocidad_movimiento: float = 30
+@export var velocidad_movimiento: float = 10
 
 #2. Declarar constantes Enum.
 enum Estados {NINGUNO, MOVIENDO_IZQUIERDA, MOVIENDO_DERECHA, MOVIENDO_ARRIBA, MOVIENDO_ABAJO, MUERTO}
 
 #3. Declarar variables locales.
-var estado_actual: Estados = Estados.NINGUNO
+var estado_actual: Estados = Estados.MOVIENDO_ARRIBA
 var velocidad_movimiento_actual: Vector2 = Vector2()
 var puede_moverse: bool = true
 
 #4. Zona de funciones Nodo.
 func _ready() -> void:
-	pass
+	$Sprite2D.frame = 210
 
 func _physics_process(delta: float) -> void:
+	
 	if (estado_actual != Estados.MUERTO):
 		velocidad_movimiento_actual = Vector2(0, 0)
 		if (estado_actual == Estados.MOVIENDO_IZQUIERDA):
 			velocidad_movimiento_actual.x = -velocidad_movimiento
 			if (puede_moverse):
 				$Timer.start()
-				if ($Sprite2D.frame == 2):
-					$Sprite2D.frame = 0
+				if ($Sprite2D.frame == 212):
+					$Sprite2D.frame = 210
 				else:
 					$Sprite2D.frame+=1
 			puede_moverse = false
@@ -31,8 +32,8 @@ func _physics_process(delta: float) -> void:
 			velocidad_movimiento_actual.x = +velocidad_movimiento
 			if (puede_moverse):
 				$Timer.start()
-				if ($Sprite2D.frame == 2):
-					$Sprite2D.frame = 0
+				if ($Sprite2D.frame == 212):
+					$Sprite2D.frame = 210
 				else:
 					$Sprite2D.frame+=1
 			puede_moverse = false
@@ -40,8 +41,8 @@ func _physics_process(delta: float) -> void:
 			velocidad_movimiento_actual.y = -velocidad_movimiento
 			if (puede_moverse):
 				$Timer.start()
-				if ($Sprite2D.frame == 19):
-					$Sprite2D.frame = 17
+				if ($Sprite2D.frame == 212):
+					$Sprite2D.frame = 210
 				else:
 					$Sprite2D.frame+=1
 			$Sprite2D.flip_h = false
@@ -50,8 +51,8 @@ func _physics_process(delta: float) -> void:
 			velocidad_movimiento_actual.y = +velocidad_movimiento
 			if (puede_moverse):
 				$Timer.start()
-				if ($Sprite2D.frame == 5):
-					$Sprite2D.frame = 3
+				if ($Sprite2D.frame == 212):
+					$Sprite2D.frame = 210
 				else:
 					$Sprite2D.frame+=1
 			$Sprite2D.flip_h = false

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #1. Declarar variables globales.
-@export var velocidad_movimiento: float = 30
+@export var velocidad_movimiento: float = 60
 
 #2. Declarar constantes Enum.
 enum Estados {NINGUNO, MOVIENDO_IZQUIERDA, MOVIENDO_DERECHA, MOVIENDO_ARRIBA, MOVIENDO_ABAJO, MUERTO}
@@ -14,7 +14,7 @@ var puede_plantar: bool = true
 
 #4. Zona de funciones Nodo.
 func _ready() -> void:
-	pass
+	$Sprite2D.frame = 1
 
 func _physics_process(delta: float) -> void:
 	if (estado_actual != Estados.MUERTO):

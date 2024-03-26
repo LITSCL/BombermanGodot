@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://deup67dau5hp3"]
+[gd_scene load_steps=11 format=3 uid="uid://deup67dau5hp3"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
 [ext_resource type="PackedScene" path="res://scenes/bomba.tscn" id="2_5pvox"]
@@ -6,9 +6,14 @@
 [ext_resource type="PackedScene" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
 [ext_resource type="PackedScene" path="res://scenes/expansion_final.tscn" id="4_copq2"]
 [ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_principal.png" id="5_djq7m"]
+[ext_resource type="Script" path="res://scripts/enemy/enemigo.gd" id="7_jub86"]
+[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/tileset/1_tileset_principal.png" id="7_s8qvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h24l"]
 size = Vector2(16.3, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nxh5"]
+size = Vector2(14, 15)
 
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_5lcg1")
@@ -308,3 +313,36 @@ shape = SubResource("RectangleShape2D_2h24l")
 [node name="CollisionShape2D70" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
 position = Vector2(208, 64)
 shape = SubResource("RectangleShape2D_2h24l")
+
+[node name="Enemigo" type="Node2D" parent="BaseTablero" groups=["enemigo"]]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="BaseTablero/Enemigo"]
+script = ExtResource("7_jub86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4nxh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+texture = ExtResource("7_s8qvh")
+hframes = 14
+vframes = 24
+frame = 210
+
+[node name="RayCast2D1" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+
+[node name="RayCast2D2" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+rotation = 3.14159
+
+[node name="RayCast2D3" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+rotation = 1.5708
+
+[node name="RayCast2D4" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+rotation = -1.5708
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseTablero/Enemigo/CharacterBody2D"]
+
+[node name="Timer" type="Timer" parent="BaseTablero/Enemigo/CharacterBody2D"]
+
+[connection signal="animation_finished" from="BaseTablero/Enemigo/CharacterBody2D/AnimationPlayer" to="BaseTablero/Enemigo/CharacterBody2D" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="BaseTablero/Enemigo/CharacterBody2D/Timer" to="BaseTablero/Enemigo/CharacterBody2D" method="_on_timer_timeout"]

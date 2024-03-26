@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		var colision: KinematicCollision2D = move_and_collide(velocidad_movimiento_actual * delta)
 		if (colision != null):
 			var objeto_colisionado: Node2D = colision.get_collider()
-			if (objeto_colisionado.is_in_group("hijo_pared") || objeto_colisionado.is_in_group("hijo_bloque_destructible") || objeto_colisionado.is_in_group("padre_bomba")):
+			if (objeto_colisionado.is_in_group("hijo_pared") or objeto_colisionado.is_in_group("hijo_bloque_destructible") or objeto_colisionado.is_in_group("padre_bomba")):
 				if (estado_actual == Estados.MOVIENDO_IZQUIERDA):
 					cambiar_direccion(1)
 				elif (estado_actual == Estados.MOVIENDO_DERECHA):

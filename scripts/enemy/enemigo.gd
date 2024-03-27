@@ -122,16 +122,16 @@ func verificar_rayos() -> void:
 			if (colisionador && colisionador.is_in_group("hijo_jugador")):
 				pass
 		else:
-			if (estado_actual != Estados.MOVIENDO_DERECHA and estado_actual != Estados.MOVIENDO_IZQUIERDA and raycast.name == "RayCast2D3"): #Detectando RayCast Izquierdo.
+			if (estado_actual != Estados.MOVIENDO_DERECHA and estado_actual != Estados.MOVIENDO_IZQUIERDA and raycast.name == "IzquierdaRayCast2D"): #Detectando RayCast Izquierdo.
 				cambiar_direccion(0)
 				return
-			elif (estado_actual != Estados.MOVIENDO_IZQUIERDA and estado_actual != Estados.MOVIENDO_DERECHA and raycast.name == "RayCast2D4"): #Detectando RayCast Derecho.
+			elif (estado_actual != Estados.MOVIENDO_IZQUIERDA and estado_actual != Estados.MOVIENDO_DERECHA and raycast.name == "DerechaRayCast2D"): #Detectando RayCast Derecho.
 				cambiar_direccion(1)
 				return
-			elif (estado_actual != Estados.MOVIENDO_ARRIBA and estado_actual != Estados.MOVIENDO_ABAJO and raycast.name == "RayCast2D1"): #Detectando RayCast Abajo.
+			elif (estado_actual != Estados.MOVIENDO_ARRIBA and estado_actual != Estados.MOVIENDO_ABAJO and raycast.name == "AbajoRayCast2D"): #Detectando RayCast Abajo.
 				cambiar_direccion(3)
 				return
-			elif (estado_actual != Estados.MOVIENDO_ABAJO and estado_actual != Estados.MOVIENDO_ARRIBA and raycast.name == "RayCast2D2"): #Detectando RayCast Arriba.
+			elif (estado_actual != Estados.MOVIENDO_ABAJO and estado_actual != Estados.MOVIENDO_ARRIBA and raycast.name == "ArribaRayCast2D"): #Detectando RayCast Arriba.
 				cambiar_direccion(4)
 				return
 			else:

@@ -85,18 +85,18 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="RayCast2D1" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
+[node name="AbajoRayCast2D" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
 target_position = Vector2(0, 16)
 
-[node name="RayCast2D2" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
+[node name="ArribaRayCast2D" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
 rotation = 3.14159
 target_position = Vector2(0, 16)
 
-[node name="RayCast2D3" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
+[node name="IzquierdaRayCast2D" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
 rotation = 1.5708
 target_position = Vector2(0, 16)
 
-[node name="RayCast2D4" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
+[node name="DerechaRayCast2D" type="RayCast2D" parent="." groups=["hijo_emision_bomba"]]
 rotation = 4.71239
 target_position = Vector2(0, 16)
 

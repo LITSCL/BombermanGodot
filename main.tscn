@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://deup67dau5hp3"]
+[gd_scene load_steps=15 format=3 uid="uid://dc0qq8wln5h4j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
+[ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/a.tscn" id="2_4aoro"]
 [ext_resource type="PackedScene" uid="uid://bmdjgu14nhovm" path="res://scenes/bomba.tscn" id="2_5pvox"]
-[ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/jugador.tscn" id="2_k6bn4"]
 [ext_resource type="PackedScene" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
 [ext_resource type="PackedScene" uid="uid://cmvybkgowh6pp" path="res://scenes/expansion_final.tscn" id="4_copq2"]
 [ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_principal.png" id="5_djq7m"]
@@ -70,7 +70,7 @@ _data = {
 
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_5lcg1")
-escena_jugador = ExtResource("2_k6bn4")
+escena_jugador = ExtResource("2_4aoro")
 escena_bomba = ExtResource("2_5pvox")
 escena_expansion_inicial = ExtResource("3_pt56r")
 escena_expansion_final = ExtResource("4_copq2")

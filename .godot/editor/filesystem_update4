@@ -1,6 +1,2 @@
-res://scenes/bomba.tscn
-res://main.gd
-res://scripts/random/bomba.gd
 res://main.tscn
-res://scenes/jugador.tscn
-res://scripts/enemy/enemigo.gd
+res://main.gd

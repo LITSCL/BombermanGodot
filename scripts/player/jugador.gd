@@ -9,6 +9,8 @@ enum Estados {NINGUNO, MOVIENDO_IZQUIERDA, MOVIENDO_DERECHA, MOVIENDO_ARRIBA, MO
 #3. Declarar variables locales.
 var estado_actual: Estados = Estados.NINGUNO
 var velocidad_movimiento_actual: Vector2 = Vector2()
+var bombas: int = 0
+var expansion: int = 1
 var puede_moverse: bool = true
 var puede_plantar: bool = true
 
@@ -81,7 +83,7 @@ func _physics_process(delta: float) -> void:
 			nodo_nivel.add_child(bomba) #Añadiendo como nodo hijo el nodo "Bomba" al nodo "Nivel".
 			puede_plantar = false
 		elif (!puede_plantar):
-			chequear_bomba()
+			verificar_bomba()
 		else:
 			pass
 		move_and_collide(velocidad_movimiento_actual * delta)
@@ -97,9 +99,9 @@ func _on_animation_player_animation_finished(nombre_animacion: String) -> void:
 		queue_free()
 
 #6. Zona de funciones Custom.
-func chequear_bomba() -> void:
+func verificar_bomba() -> void:
 	var cantidad_bombas: int = get_tree().get_nodes_in_group("padre_bomba").size() #Obteniendo la cantidad de nodos en el grupo "padre_bomba".
-	if (cantidad_bombas == 0):
+	if (cantidad_bombas == bombas):
 		puede_plantar = true
 		
 func muerte() -> void:

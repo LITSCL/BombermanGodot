@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://da7okxbl8pjwc"]
+
+[ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/tileset/1_tileset_principal.png" id="1_1vitt"]
+[ext_resource type="Script" path="res://scripts/pickup/expansor_pickup.gd" id="1_dvy5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcoll"]
+size = Vector2(13, 12)
+
+[node name="ExpansorPickup" type="Node2D"]
+script = ExtResource("1_dvy5e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_1vitt")
+hframes = 14
+vframes = 24
+frame = 197
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_tcoll")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

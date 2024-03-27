@@ -1,6 +1,7 @@
-res://scripts/enemy
-res://assets/graphic/tileset
+res://scripts/pickup
 res://scenes
+res://assets/graphic/tileset
+res://scripts/enemy
 res://scripts
 res://
 res://scripts/player

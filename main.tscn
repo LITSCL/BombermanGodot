@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc0qq8wln5h4j"]
+[gd_scene load_steps=16 format=3 uid="uid://dc0qq8wln5h4j"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
-[ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/a.tscn" id="2_4aoro"]
+[ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/jugador.tscn" id="2_4aoro"]
 [ext_resource type="PackedScene" uid="uid://bmdjgu14nhovm" path="res://scenes/bomba.tscn" id="2_5pvox"]
-[ext_resource type="PackedScene" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
+[ext_resource type="PackedScene" uid="uid://dhhk75rri80ud" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
 [ext_resource type="PackedScene" uid="uid://cmvybkgowh6pp" path="res://scenes/expansion_final.tscn" id="4_copq2"]
 [ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_principal.png" id="5_djq7m"]
 [ext_resource type="Script" path="res://scripts/enemy/enemigo.gd" id="7_jub86"]
@@ -67,6 +67,9 @@ _data = {
 "MUERTE": SubResource("Animation_86k7l"),
 "RESET": SubResource("Animation_o0ajk")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcoll"]
+size = Vector2(13, 12)
 
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_5lcg1")
@@ -402,6 +405,24 @@ libraries = {
 [node name="Timer" type="Timer" parent="BaseTablero/Enemigo/CharacterBody2D"]
 wait_time = 0.3
 one_shot = true
+
+[node name="Expansor" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Expansor"]
+texture = ExtResource("7_s8qvh")
+hframes = 14
+vframes = 24
+frame = 197
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Expansor"]
+shape = SubResource("RectangleShape2D_tcoll")
+
+[node name="Bombas" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Bombas"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bombas"]
+shape = SubResource("RectangleShape2D_tcoll")
 
 [connection signal="animation_finished" from="BaseTablero/Enemigo/CharacterBody2D/AnimationPlayer" to="BaseTablero/Enemigo/CharacterBody2D" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="BaseTablero/Enemigo/CharacterBody2D/Timer" to="BaseTablero/Enemigo/CharacterBody2D" method="_on_timer_timeout"]

@@ -13,8 +13,10 @@ func _ready() -> void:
 	var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
 	for nodo in nodos_raycast:
 		var raycast: Node = nodo as RayCast2D
-		raycast.add_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Evitando que los rayos colisionen con el jugador.
-
+		var nodo_jugador: Node = get_tree().get_nodes_in_group("hijo_jugador")[0]
+		raycast.add_exception(nodo_jugador) #Evitando que los rayos colisionen con el jugador.
+		raycast.target_position.y = 16 * nodo_jugador.expansion
+		
 func _physics_process(delta: float) -> void:
 	if (exploto):
 		verificar_rayos()
@@ -32,7 +34,8 @@ func _on_animation_player_animation_finished(nombre_animacion: String) -> void:
 		var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
 		for nodo in nodos_raycast:
 			var raycast: Node = nodo as RayCast2D
-			raycast.remove_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Permitiendo que los rayos colisionen con el jugador.
+			var nodo_jugador: Node = get_tree().get_nodes_in_group("hijo_jugador")[0]
+			raycast.remove_exception(nodo_jugador) #Permitiendo que los rayos colisionen con el jugador.
 
 #5. Zona de funciones Custom.
 func verificar_rayos() -> void:

@@ -1,2 +1,8 @@
-res://main.tscn
+res://scenes/bomba_pickup.tscn
 res://main.gd
+res://scenes/expansor_pickup.tscn
+res://scenes/bomba.tscn
+res://main.tscn
+res://scripts/random/bomba.gd
+res://scripts/player/jugador.gd
+res://scripts/game_controller/controlador_juego.gd

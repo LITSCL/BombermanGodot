@@ -1,8 +1,8 @@
 2a60927148abd1d33b818b535e306557
-::res://::1711573868
+::res://::1711573883
 icon.svg::CompressedTexture2D::2341069075993442636::1711483779::1711483779::1::::<><>::
 main.gd::GDScript::-1::1711573883::0::1::::<>Node2D<>::
-main.tscn::PackedScene::7482272780624709286::1711573883::0::1::::<><>::res://main.gd<>uid://bmdjgu14nhovm<>uid://luxf0ophieso<>res://scenes/expansion_inicial.tscn<>uid://cmvybkgowh6pp<>uid://b58vnxoygwly5<>res://scripts/enemy/enemigo.gd<>uid://ctbpa15ikl5aq
+main.tscn::PackedScene::-1::1711573883::0::1::::<><>::
 ::res://assets/::1711483779
 ::res://assets/font/::1711483779
 8-BIT WONDER.TTF::FontFile::2455235844815137195::1711483779::1711483779::1::::<><>::
@@ -34,11 +34,11 @@ borrar.txt::TextFile::-1::1711483779::0::1::::<><>::
 ::res://resources/::1711493804
 tile.tres::TileSet::2021136227669797465::1711493803::0::1::::<><>::uid://b58vnxoygwly5
 tile.tscn::PackedScene::929075459901669962::1711493804::0::1::::<><>::uid://32b23bsaqcy8
-::res://scenes/::1711573155
+::res://scenes/::1711573883
+a.tscn::PackedScene::814771590304925714::1711573155::0::1::::<><>::res://scripts/player/jugador.gd<>uid://ctbpa15ikl5aq
 bomba.tscn::PackedScene::3235438200277205942::1711573155::0::1::::<><>::res://scripts/random/bomba.gd<>uid://ctbpa15ikl5aq
 expansion_final.tscn::PackedScene::5659918952666280801::1711493804::0::1::::<><>::res://scripts/random/expansion_final.gd<>uid://ctbpa15ikl5aq
 expansion_inicial.tscn::PackedScene::-1::1711483779::0::1::::<><>::uid://ctbpa15ikl5aq<>res://scripts/random/expansion_inicial.gd
-jugador.tscn::PackedScene::814771590304925714::1711573155::0::1::::<><>::res://scripts/player/jugador.gd<>uid://ctbpa15ikl5aq
 nivel_1.tscn::PackedScene::3267216211434536568::1711493804::0::1::::<><>::uid://32b23bsaqcy8
 ::res://scripts/::1711483779
 ::res://scripts/enemy/::1711573352

@@ -16,7 +16,6 @@ func _ready() -> void:
 	$Sprite2D.frame = 210
 
 func _physics_process(delta: float) -> void:
-	
 	if (estado_actual != Estados.MUERTO):
 		velocidad_movimiento_actual = Vector2(0, 0)
 		if (estado_actual == Estados.MOVIENDO_IZQUIERDA):
@@ -73,6 +72,8 @@ func _physics_process(delta: float) -> void:
 					cambiar_direccion(3)
 				else:
 					pass
+		else:
+			verificar_rayos()
 
 #5. Zona de funciones Señal.
 func _on_timer_timeout() -> void:
@@ -101,7 +102,31 @@ func cambiar_direccion(direccion: int) -> void:
 		3:
 			estado_actual = Estados.MOVIENDO_ABAJO
 			$Sprite2D.frame = 210
-		
+
+func verificar_rayos() -> void:
+	var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_deteccion_pared")
+	for nodo in nodos_raycast:
+		var raycast: Node = nodo as RayCast2D
+		if (raycast.is_colliding): #Comprobando si el rayo colisiona con algún elemento.
+			var colisionador: Node = raycast.get_collider()
+			if (colisionador && colisionador.is_in_group("hijo_jugador")):
+				pass
+		else:
+			if (estado_actual != Estados.MOVIENDO_DERECHA and estado_actual != Estados.MOVIENDO_IZQUIERDA and raycast.name == "RayCast2D3"): #Detectando RayCast Izquierdo.
+				cambiar_direccion(0)
+				return
+			elif (estado_actual != Estados.MOVIENDO_IZQUIERDA and estado_actual != Estados.MOVIENDO_DERECHA and raycast.name == "RayCast2D4"): #Detectando RayCast Derecho.
+				cambiar_direccion(1)
+				return
+			elif (estado_actual != Estados.MOVIENDO_ARRIBA and estado_actual != Estados.MOVIENDO_ABAJO and raycast.name == "RayCast2D1"): #Detectando RayCast Abajo.
+				cambiar_direccion(3)
+				return
+			elif (estado_actual != Estados.MOVIENDO_ABAJO and estado_actual != Estados.MOVIENDO_ARRIBA and raycast.name == "RayCast2D2"): #Detectando RayCast Arriba.
+				cambiar_direccion(4)
+				return
+			else:
+				pass
+	
 func muerte() -> void:
 	estado_actual = Estados.MUERTO
 	$AnimationPlayer.play("MUERTE")

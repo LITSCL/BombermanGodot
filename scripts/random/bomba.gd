@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if (exploto):
-		chequear_rayo()
+		verificar_rayos()
 		queue_free() #Destruyendo la bomba.
 
 #4. Zona de funciones Señal.
@@ -28,14 +28,14 @@ func _on_timer_timeout() -> void:
 func _on_animation_player_animation_finished(nombre_animacion: String) -> void:
 	if (nombre_animacion == "BOMBA_EXPLOTANDO"):
 		exploto = true
-		chequear_rayo()
+		verificar_rayos()
 		var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
 		for nodo in nodos_raycast:
 			var raycast: Node = nodo as RayCast2D
 			raycast.remove_exception(get_tree().get_nodes_in_group("hijo_jugador")[0]) #Permitiendo que los rayos colisionen con el jugador.
 
 #5. Zona de funciones Custom.
-func chequear_rayo() -> void:
+func verificar_rayos() -> void:
 	var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_emision_bomba")
 	for nodo in nodos_raycast:
 		var raycast: Node = nodo as RayCast2D

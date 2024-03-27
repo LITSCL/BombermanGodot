@@ -13,7 +13,7 @@
 size = Vector2(16.3, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nxh5"]
-size = Vector2(14, 15)
+size = Vector2(10, 12)
 
 [sub_resource type="Animation" id="Animation_demfj"]
 resource_name = "INACTIVO"
@@ -368,12 +368,13 @@ position = Vector2(208, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
 [node name="Enemigo" type="Node2D" parent="BaseTablero" groups=["enemigo"]]
+position = Vector2(1, -16)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="BaseTablero/Enemigo"]
+position = Vector2(15, 0)
 script = ExtResource("7_jub86")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_4nxh5")
 
 [node name="Sprite2D" type="Sprite2D" parent="BaseTablero/Enemigo/CharacterBody2D"]

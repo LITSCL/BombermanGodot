@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 #1. Declarar variables globales.
 @export var velocidad_movimiento: float = 10
+@export var probabilidad_cambio_direccion: float = 100
 
 #2. Declarar constantes Enum.
 enum Estados {NINGUNO, MOVIENDO_IZQUIERDA, MOVIENDO_DERECHA, MOVIENDO_ARRIBA, MOVIENDO_ABAJO, MUERTO}
@@ -10,6 +11,7 @@ enum Estados {NINGUNO, MOVIENDO_IZQUIERDA, MOVIENDO_DERECHA, MOVIENDO_ARRIBA, MO
 var estado_actual: Estados = Estados.MOVIENDO_DERECHA
 var velocidad_movimiento_actual: Vector2 = Vector2()
 var puede_moverse: bool = true
+var debe_cambiar_direccion: bool = true
 
 #4. Zona de funciones Nodo.
 func _ready() -> void:
@@ -73,7 +75,13 @@ func _physics_process(delta: float) -> void:
 				else:
 					pass
 		else:
-			verificar_rayos()
+			var posicion_grilla: Vector2 = Vector2(int(round(position.x / 16)), int(round(position.y / 16)))
+			posicion_grilla = Vector2(posicion_grilla.x * 16 - 8, posicion_grilla.y * 16 - 16) #Cuadrando el enemigo dentro de una celda de la grilla.
+			if (posicion_grilla.distance_to(global_position) < 1):
+				verificar_rayos()
+				debe_cambiar_direccion = false
+				await get_tree().create_timer(0.5).timeout
+				debe_cambiar_direccion = true
 
 #5. Zona de funciones Señal.
 func _on_timer_timeout() -> void:
@@ -87,21 +95,23 @@ func _on_animation_player_animation_finished(nombre_animacion: String) -> void:
 
 #6. Zona de funciones Custom.
 func cambiar_direccion(direccion: int) -> void:
-	match (direccion):
-		0:
-			estado_actual = Estados.MOVIENDO_IZQUIERDA
-			$Sprite2D.frame = 210
-			$Sprite2D.flip_h = true
-		1:
-			estado_actual = Estados.MOVIENDO_DERECHA
-			$Sprite2D.frame = 210
-			$Sprite2D.flip_h = false
-		2:
-			estado_actual = Estados.MOVIENDO_ARRIBA
-			$Sprite2D.frame = 210
-		3:
-			estado_actual = Estados.MOVIENDO_ABAJO
-			$Sprite2D.frame = 210
+	var probabilidad: int = randi_range(0, 100)
+	if (probabilidad_cambio_direccion >= probabilidad):
+		match (direccion):
+			0:
+				estado_actual = Estados.MOVIENDO_IZQUIERDA
+				$Sprite2D.frame = 210
+				$Sprite2D.flip_h = true
+			1:
+				estado_actual = Estados.MOVIENDO_DERECHA
+				$Sprite2D.frame = 210
+				$Sprite2D.flip_h = false
+			2:
+				estado_actual = Estados.MOVIENDO_ARRIBA
+				$Sprite2D.frame = 210
+			3:
+				estado_actual = Estados.MOVIENDO_ABAJO
+				$Sprite2D.frame = 210
 
 func verificar_rayos() -> void:
 	var nodos_raycast: Array[Node] = get_tree().get_nodes_in_group("hijo_deteccion_pared")

@@ -70,6 +70,12 @@ func verificar_rayos() -> void:
 					bomba_pickup.position = punto_colision + modificador
 					bomba_pickup.position.y-=24
 					bomba_pickup.position.x+=32
+					if (raycast.name == "IzquierdaRayCast2D"):
+						bomba_pickup.position.y+=8
+						bomba_pickup.position.x-=8
+					if (raycast.name == "DerechaRayCast2D"):
+						bomba_pickup.position.y+=8
+						bomba_pickup.position.x-=8
 					nodo_nivel_1.add_child(bomba_pickup) #Añadiendo como nodo hijo el nodo "BombaPickup" al nodo "Nivel".
 				elif (false): #Comprobando que el Tile corresponda al de una expansión en Atlas.
 					var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
@@ -78,6 +84,12 @@ func verificar_rayos() -> void:
 					expansion_pickup.position = punto_colision + modificador
 					expansion_pickup.position.y-=24
 					expansion_pickup.position.x+=32
+					if (raycast.name == "IzquierdaRayCast2D"):
+						expansion_pickup.position.y+=8
+						expansion_pickup.position.x-=8
+					if (raycast.name == "DerechaRayCast2D"):
+						expansion_pickup.position.y+=8
+						expansion_pickup.position.x-=8
 					nodo_nivel_1.add_child(expansion_pickup) #Añadiendo como nodo hijo el nodo "ExpansionPickup" al nodo "Nivel".
 				else:
 					pass

@@ -1,10 +1,9 @@
-res://main.tscn
+res://scenes/pickup/bomba_pickup.tscn
 res://main.gd
 res://resources/tile.tres
-res://scripts/random/bomba.gd
-res://scenes/pickup/bomba_pickup.tscn
 res://levels/nivel_1.tscn
+res://main.tscn
 res://scenes/pickup/expansor_pickup.tscn
-res://scripts/player/jugador.gd
-res://scripts/pickup/bomba_pickup.gd
 res://resources/tile.tscn
+res://scripts/random/bomba.gd
+res://scenes/random/bomba.tscn

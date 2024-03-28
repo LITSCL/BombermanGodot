@@ -103,7 +103,6 @@ func generar_expansion() -> void:
 	var nodo_nivel: Node = get_tree().get_nodes_in_group("padre_nivel")[0] as Node2D
 	var casillero_actual: int = 1
 	var casillero_recorrer: int = -1
-	#EXPANSIÓN DERECHA.
 	casillero_recorrer = $DerechaRayCast2D.target_position.y / 16
 	for i in casillero_recorrer:
 		if (casillero_actual < casillero_recorrer):
@@ -122,7 +121,6 @@ func generar_expansion() -> void:
 			pass
 		casillero_actual+=1
 	casillero_actual = 1
-	#EXPANSIÓN IZQUIERDA.
 	casillero_recorrer = $IzquierdaRayCast2D.target_position.y / 16
 	for i in casillero_recorrer:
 		if (casillero_actual < casillero_recorrer):
@@ -143,7 +141,6 @@ func generar_expansion() -> void:
 			pass
 		casillero_actual+=1
 	casillero_actual = 1
-	#EXPANSIÓN ARRIBA.
 	casillero_recorrer = $ArribaRayCast2D.target_position.y / 16
 	for i in casillero_recorrer:
 		if (casillero_actual < casillero_recorrer):
@@ -164,7 +161,6 @@ func generar_expansion() -> void:
 			pass
 		casillero_actual+=1
 	casillero_actual = 1
-	#EXPANSIÓN ABAJO.
 	casillero_recorrer = $AbajoRayCast2D.target_position.y / 16
 	for i in casillero_recorrer:
 		if (casillero_actual < casillero_recorrer):

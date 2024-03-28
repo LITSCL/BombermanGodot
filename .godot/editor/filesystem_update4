@@ -1,9 +1,4 @@
-res://scenes/pickup/bomba_pickup.tscn
+res://scenes/random/bomba.tscn
 res://main.gd
 res://resources/tile.tres
-res://levels/nivel_1.tscn
-res://main.tscn
-res://scenes/pickup/expansor_pickup.tscn
-res://resources/tile.tscn
 res://scripts/random/bomba.gd
-res://scenes/random/bomba.tscn

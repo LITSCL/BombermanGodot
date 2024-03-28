@@ -63,17 +63,22 @@ func verificar_rayos() -> void:
 				var punto_colision: Vector2 = raycast.get_collision_point() + modificador #Obteniendo la posición de colisión.
 				var nodo_tilemap: Node = get_tree().get_nodes_in_group("hijo_bloque_destructible")[0] as TileMap
 				var posicion_tilemap: Vector2 = nodo_tilemap.local_to_map(punto_colision) #Obteniendo la posición del Tile.
-				if (true): #nodo_tilemap.to_local(punto_colision)
-					print("asdasdasd")
+				if (nodo_tilemap.get_cell_atlas_coords(0, posicion_tilemap) == Vector2i(1, 13)): #Comprobando que el Tile corresponda al de una bomba en Atlas.
 					var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
 					var nodo_nivel_1: Node = get_tree().get_nodes_in_group("padre_nivel")[0] as Node2D
 					var bomba_pickup: Node = nodo_main.escena_bomba_pickup.instantiate() #Creando una instancia de la escena "BombaPickup".
-					bomba_pickup.position = posicion_tilemap
-				elif (nodo_tilemap.to_local(punto_colision)):
+					bomba_pickup.position = punto_colision + modificador
+					bomba_pickup.position.y-=24
+					bomba_pickup.position.x+=32
+					nodo_nivel_1.add_child(bomba_pickup) #Añadiendo como nodo hijo el nodo "BombaPickup" al nodo "Nivel".
+				elif (false): #Comprobando que el Tile corresponda al de una expansión en Atlas.
 					var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
 					var nodo_nivel_1: Node = get_tree().get_nodes_in_group("padre_nivel")[0] as Node2D
 					var expansion_pickup: Node = nodo_main.escena_expansion_pickup.instantiate() #Creando una instancia de la escena "ExpansionPickup".
-					expansion_pickup.position = posicion_tilemap
+					expansion_pickup.position = punto_colision + modificador
+					expansion_pickup.position.y-=24
+					expansion_pickup.position.x+=32
+					nodo_nivel_1.add_child(expansion_pickup) #Añadiendo como nodo hijo el nodo "ExpansionPickup" al nodo "Nivel".
 				else:
 					pass
 				nodo_tilemap.erase_cell(0, posicion_tilemap) #Borrando el Tile.

@@ -15,7 +15,7 @@ func _ready() -> void:
 		var raycast: Node = nodo as RayCast2D
 		var nodo_jugador: Node = get_tree().get_nodes_in_group("hijo_jugador")[0]
 		raycast.add_exception(nodo_jugador) #Evitando que los rayos colisionen con el jugador.
-		raycast.target_position.y = 16 * nodo_jugador.expansion
+		raycast.target_position.y = 16 * nodo_jugador.expansor
 		
 func _physics_process(delta: float) -> void:
 	if (exploto):
@@ -46,16 +46,16 @@ func verificar_rayos() -> void:
 			var colisionador: Node = raycast.get_collider()
 			if (colisionador && colisionador.is_in_group("hijo_bloque_destructible")):
 				var modificador: Vector2 = Vector2()
-				if (raycast.name == "RayCast2D1"): #Abajo
+				if (raycast.name == "AbajoRayCast2D"):
 					modificador.y = 16
 					modificador.x = -16
-				elif (raycast.name == "RayCast2D2"): #Arriba
+				elif (raycast.name == "ArribaRayCast2D"): 
 					modificador.y = 8
 					modificador.x = -16
-				elif (raycast.name == "RayCast2D3"): #Izquierda
+				elif (raycast.name == "IzquierdaRayCast2D"):
 					modificador.x = -16
 					modificador.y = 8
-				elif (raycast.name == "RayCast2D4"): #Derecha
+				elif (raycast.name == "DerechaRayCast2D"):
 					modificador.x = -8
 					modificador.y = 8
 				else:
@@ -63,6 +63,19 @@ func verificar_rayos() -> void:
 				var punto_colision: Vector2 = raycast.get_collision_point() + modificador #Obteniendo la posición de colisión.
 				var nodo_tilemap: Node = get_tree().get_nodes_in_group("hijo_bloque_destructible")[0] as TileMap
 				var posicion_tilemap: Vector2 = nodo_tilemap.local_to_map(punto_colision) #Obteniendo la posición del Tile.
+				if (true): #nodo_tilemap.to_local(punto_colision)
+					print("asdasdasd")
+					var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+					var nodo_nivel_1: Node = get_tree().get_nodes_in_group("padre_nivel")[0] as Node2D
+					var bomba_pickup: Node = nodo_main.escena_bomba_pickup.instantiate() #Creando una instancia de la escena "BombaPickup".
+					bomba_pickup.position = posicion_tilemap
+				elif (nodo_tilemap.to_local(punto_colision)):
+					var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
+					var nodo_nivel_1: Node = get_tree().get_nodes_in_group("padre_nivel")[0] as Node2D
+					var expansion_pickup: Node = nodo_main.escena_expansion_pickup.instantiate() #Creando una instancia de la escena "ExpansionPickup".
+					expansion_pickup.position = posicion_tilemap
+				else:
+					pass
 				nodo_tilemap.erase_cell(0, posicion_tilemap) #Borrando el Tile.
 			elif (colisionador && colisionador.is_in_group("hijo_jugador")):
 				colisionador.muerte();
@@ -70,7 +83,7 @@ func verificar_rayos() -> void:
 				pass
 
 func generar_expansion() -> void:
-	var nodo_nivel: Node = get_tree().get_nodes_in_group("hijo_nivel")[0] as Node2D
+	var nodo_nivel: Node = get_tree().get_nodes_in_group("padre_nivel")[0] as Node2D
 	var casillero_actual: int = 1
 	var casillero_recorrer: int = -1
 	#EXPANSIÓN DERECHA.

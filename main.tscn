@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dc0qq8wln5h4j"]
+[gd_scene load_steps=17 format=3 uid="uid://6eig80bbvnr6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5lcg1"]
-[ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/jugador.tscn" id="2_4aoro"]
-[ext_resource type="PackedScene" uid="uid://bmdjgu14nhovm" path="res://scenes/bomba.tscn" id="2_5pvox"]
-[ext_resource type="PackedScene" uid="uid://dhhk75rri80ud" path="res://scenes/expansion_inicial.tscn" id="3_pt56r"]
-[ext_resource type="PackedScene" uid="uid://cmvybkgowh6pp" path="res://scenes/expansion_final.tscn" id="4_copq2"]
+[ext_resource type="PackedScene" uid="uid://luxf0ophieso" path="res://scenes/player/jugador.tscn" id="2_dn1y6"]
+[ext_resource type="PackedScene" uid="uid://bmdjgu14nhovm" path="res://scenes/random/bomba.tscn" id="3_eqakv"]
+[ext_resource type="PackedScene" uid="uid://dhhk75rri80ud" path="res://scenes/random/expansion_inicial.tscn" id="4_6pskr"]
 [ext_resource type="Texture2D" uid="uid://b58vnxoygwly5" path="res://assets/graphic/background/1_background_principal.png" id="5_djq7m"]
+[ext_resource type="PackedScene" uid="uid://cmvybkgowh6pp" path="res://scenes/random/expansion_final.tscn" id="5_tnxly"]
+[ext_resource type="PackedScene" uid="uid://blvaxlh03ol4j" path="res://scenes/pickup/bomba_pickup.tscn" id="6_xmwib"]
+[ext_resource type="PackedScene" uid="uid://da7okxbl8pjwc" path="res://scenes/pickup/expansor_pickup.tscn" id="7_iwmoa"]
 [ext_resource type="Script" path="res://scripts/enemy/enemigo.gd" id="7_jub86"]
 [ext_resource type="Texture2D" uid="uid://ctbpa15ikl5aq" path="res://assets/graphic/tileset/1_tileset_principal.png" id="7_s8qvh"]
 
@@ -68,361 +70,342 @@ _data = {
 "RESET": SubResource("Animation_o0ajk")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcoll"]
-size = Vector2(13, 12)
-
 [node name="Main" type="Node2D" groups=["main"]]
 script = ExtResource("1_5lcg1")
-escena_jugador = ExtResource("2_4aoro")
-escena_bomba = ExtResource("2_5pvox")
-escena_expansion_inicial = ExtResource("3_pt56r")
-escena_expansion_final = ExtResource("4_copq2")
+escena_jugador = ExtResource("2_dn1y6")
+escena_bomba = ExtResource("3_eqakv")
+escena_expansion_inicial = ExtResource("4_6pskr")
+escena_expansion_final = ExtResource("5_tnxly")
+escena_bomba_pickup = ExtResource("6_xmwib")
+escena_expansion_pickup = ExtResource("7_iwmoa")
 
-[node name="BaseTablero" type="Node2D" parent="."]
+[node name="Tablero" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="BaseTablero" groups=["hijo_pared"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="Tablero" groups=["hijo_pared"]]
 
-[node name="Sprite2D" type="Sprite2D" parent="BaseTablero/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Tablero/StaticBody2D"]
 texture = ExtResource("5_djq7m")
 region_enabled = true
 region_rect = Rect2(0.312199, -0.0549393, 495.495, 207.769)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tablero/StaticBody2D"]
 polygon = PackedVector2Array(-232, -88, -232, 88, 247, 88, 247, 103, -248, 103, -248, -104, 247, -104, 247, 88, 232, 88, 232, -88)
 
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-208.15, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-176.3, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-144, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-112.15, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-80, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-48.15, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-15.85, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(16, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(48, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(79.85, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(112.15, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(144, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(176, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(207.85, -64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D15" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-208, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-176.15, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D17" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-143.85, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D18" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-112, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-79.85, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D20" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-48, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-15.7, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(16.15, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D23" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(48.15, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D24" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(80, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D25" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(112.3, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D26" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(144.15, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D27" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(176.15, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D28" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(208, -32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D29" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-208, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D30" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-176.15, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D31" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-143.85, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D32" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-112, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D33" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-79.85, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D34" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-47.9999, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D35" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-15.7, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D36" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(16.1501, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D37" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(48.15, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D38" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(80.0001, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D39" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(112.3, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D40" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(144.15, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D41" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(176.15, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D42" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(208, 0)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D43" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-208, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D44" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-176.15, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D45" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-143.85, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D46" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-112, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D47" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-79.85, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D48" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-48, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D49" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-15.7, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D50" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(16.15, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D51" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(48.15, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D52" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(80, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D53" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(112.3, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D54" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(144.15, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D55" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(176.15, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D56" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(208, 32)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D57" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-208, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D58" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-176.15, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D59" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-143.85, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D60" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-112, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D61" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-79.85, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D62" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-47.9999, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D63" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(-15.7, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D64" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(16.1501, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D65" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(48.15, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D66" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(80.0001, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D67" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(112.3, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D68" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(144.15, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D69" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(176.15, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="CollisionShape2D70" type="CollisionShape2D" parent="BaseTablero/StaticBody2D"]
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="Tablero/StaticBody2D"]
 position = Vector2(208, 64)
 shape = SubResource("RectangleShape2D_2h24l")
 
-[node name="Enemigo" type="Node2D" parent="BaseTablero" groups=["enemigo"]]
+[node name="Enemigo" type="Node2D" parent="Tablero" groups=["enemigo"]]
 position = Vector2(1, -16)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="BaseTablero/Enemigo"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Tablero/Enemigo"]
 position = Vector2(15, 0)
 script = ExtResource("7_jub86")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tablero/Enemigo/CharacterBody2D"]
 shape = SubResource("RectangleShape2D_4nxh5")
 
-[node name="Sprite2D" type="Sprite2D" parent="BaseTablero/Enemigo/CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Tablero/Enemigo/CharacterBody2D"]
 texture = ExtResource("7_s8qvh")
 hframes = 14
 vframes = 24
 frame = 217
 
-[node name="AbajoRayCast2D" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
+[node name="AbajoRayCast2D" type="RayCast2D" parent="Tablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
 
-[node name="ArribaRayCast2D" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
+[node name="ArribaRayCast2D" type="RayCast2D" parent="Tablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
 rotation = 3.14159
 
-[node name="IzquierdaRayCast2D" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
+[node name="IzquierdaRayCast2D" type="RayCast2D" parent="Tablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
 rotation = 1.5708
 
-[node name="DerechaRayCast2D" type="RayCast2D" parent="BaseTablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
+[node name="DerechaRayCast2D" type="RayCast2D" parent="Tablero/Enemigo/CharacterBody2D" groups=["hijo_deteccion_pared"]]
 rotation = -1.5708
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BaseTablero/Enemigo/CharacterBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tablero/Enemigo/CharacterBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_l251k")
 }
 
-[node name="Timer" type="Timer" parent="BaseTablero/Enemigo/CharacterBody2D"]
+[node name="Timer" type="Timer" parent="Tablero/Enemigo/CharacterBody2D"]
 wait_time = 0.3
 one_shot = true
 
-[node name="Expansor" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Expansor"]
-texture = ExtResource("7_s8qvh")
-hframes = 14
-vframes = 24
-frame = 197
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Expansor"]
-shape = SubResource("RectangleShape2D_tcoll")
-
-[node name="Bombas" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Bombas"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bombas"]
-shape = SubResource("RectangleShape2D_tcoll")
-
-[connection signal="animation_finished" from="BaseTablero/Enemigo/CharacterBody2D/AnimationPlayer" to="BaseTablero/Enemigo/CharacterBody2D" method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="BaseTablero/Enemigo/CharacterBody2D/Timer" to="BaseTablero/Enemigo/CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Tablero/Enemigo/CharacterBody2D/AnimationPlayer" to="Tablero/Enemigo/CharacterBody2D" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Tablero/Enemigo/CharacterBody2D/Timer" to="Tablero/Enemigo/CharacterBody2D" method="_on_timer_timeout"]

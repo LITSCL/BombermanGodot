@@ -10,7 +10,7 @@ enum Estados {NINGUNO, MOVIENDO_IZQUIERDA, MOVIENDO_DERECHA, MOVIENDO_ARRIBA, MO
 var estado_actual: Estados = Estados.NINGUNO
 var velocidad_movimiento_actual: Vector2 = Vector2()
 var bombas: int = 0
-var expansion: int = 1
+var expansor: int = 1
 var puede_moverse: bool = true
 var puede_plantar: bool = true
 
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 			pass
 		if (Input.is_action_just_pressed("tecla_espacio") && puede_plantar):
 			var nodo_main: Node = get_tree().get_nodes_in_group("main")[0] as Node2D #Obteniendo el nodo "Main".
-			var nodo_nivel: Node = get_tree().get_nodes_in_group("hijo_nivel")[0] as Node2D #Obteniendo el nodo "Nivel".
+			var nodo_nivel: Node = get_tree().get_nodes_in_group("padre_nivel")[0] as Node2D #Obteniendo el nodo "Nivel".
 			var bomba: Node = nodo_main.escena_bomba.instantiate() #Creando una instancia de la escena "Bomba".
 			bomba.position = position #Asignando la posición de la bomba (Se esta asignando la posición del jugador).
 			nodo_nivel.add_child(bomba) #Añadiendo como nodo hijo el nodo "Bomba" al nodo "Nivel".

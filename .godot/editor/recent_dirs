@@ -1,5 +1,6 @@
-res://scripts/pickup
+res://scenes/pickup
 res://scenes
+res://scripts/pickup
 res://assets/graphic/tileset
 res://scripts/enemy
 res://scripts
